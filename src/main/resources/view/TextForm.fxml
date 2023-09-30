@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.web.HTMLEditor?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.dep11.app.TextFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="root" prefHeight="852.0" prefWidth="1127.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.app.TextFormController">
+   <children>
+      <MenuBar layoutY="1.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="btnNew" mnemonicParsing="false" onAction="#btnNewOnAction" text="New" />
+                  <MenuItem fx:id="btnOpen" mnemonicParsing="false" onAction="#btnOpenOnAction" text="Open" />
+                  <MenuItem fx:id="btnSave" mnemonicParsing="false" onAction="#btnSaveOnAction" text="Save" />
+                  <MenuItem fx:id="btnSaveAs" mnemonicParsing="false" onAction="#btnSaveAsOnAction" text="Save As" />
+                  <MenuItem fx:id="btnPrint" mnemonicParsing="false" onAction="#btnPrintOnAction" text="Print" />
+                  <MenuItem fx:id="btnExit" mnemonicParsing="false" onAction="#btnExitOnAction" text="Exit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem fx:id="btnCut" mnemonicParsing="false" onAction="#btnCutOnAction" text="Cut" />
+                  <MenuItem fx:id="btnCopy" mnemonicParsing="false" onAction="#btnCopyOnAction" text="Copy" />
+                  <MenuItem fx:id="btnPaste" mnemonicParsing="false" onAction="#btnPasteOnAction" text="Paste" />
+                  <MenuItem fx:id="btnSelectAll" mnemonicParsing="false" onAction="#btnSelectAllOnAction" text="SelectAll" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="btnUserGuide" mnemonicParsing="false" onAction="#btnUserGuideOnAction" text="User Guide" />
+                  <MenuItem fx:id="btnAbout" mnemonicParsing="false" onAction="#btnAboutOnAction" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <HTMLEditor layoutY="28.0" prefHeight="824.0" prefWidth="1127.0" />
+   </children>
 </AnchorPane>
