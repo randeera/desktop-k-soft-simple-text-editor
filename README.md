@@ -18,6 +18,6 @@ As I look forward to expanding the capabilities of this application, I am commit
 IntelliJ IDEA Ultimate Edition
 
 ### ☛ License
-This application is licensed under this <a href="/home/randeera/Documents/dep-11/my-projects/simple-notepad-desktop-app/License.txt">License</a>
+This application is licensed under this <a href="https://github.com/randeera/simple-text-editor-desktop-app/blob/main/License.txt">License</a>
 
 Copyright © 2023 | K.H.K.Randeera | All Rights Reserved.
