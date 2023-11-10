@@ -16,11 +16,11 @@ public class AppInitializer extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        AnchorPane root = FXMLLoader.load(getClass().getResource("/view/TextForm"));
-        primaryStage.setScene(new Scene(root));
-        primaryStage.setTitle("Simple Text Editor");
+        AnchorPane root = FXMLLoader.load(getClass().getResource("/view/TextForm.fxml"));
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("KSoft Simple Text Editor");
         primaryStage.show();
         primaryStage.setResizable(false);
-
     }
 }
