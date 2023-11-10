@@ -4,36 +4,36 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.web.HTMLEditor?>
 
 
-<AnchorPane fx:id="root" prefHeight="601.0" prefWidth="935.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.app.TextFormController">
+<AnchorPane fx:id="root" prefHeight="638.0" prefWidth="935.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.app.TextFormController">
    <children>
       <VBox prefHeight="601.0" prefWidth="935.0">
          <children>
-            <MenuBar prefHeight="153.0" prefWidth="922.0">
+            <MenuBar fx:id="menuBar" prefHeight="153.0" prefWidth="922.0">
               <menus>
-                <Menu mnemonicParsing="false" text="File">
+                <Menu fx:id="menuFile" mnemonicParsing="false" text="File">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="New" />
-                        <MenuItem mnemonicParsing="false" text="Open" />
-                        <MenuItem mnemonicParsing="false" text="Save" />
-                        <MenuItem mnemonicParsing="false" text="Save As" />
-                        <MenuItem mnemonicParsing="false" text="Close" />
+                    <MenuItem fx:id="menuItemNew" mnemonicParsing="false" onAction="#menuItemNewOnAction" text="New" />
+                        <MenuItem fx:id="menuItemOpen" mnemonicParsing="false" onAction="#menuItemOpenOnAction" text="Open" />
+                        <MenuItem fx:id="menuItemSave" mnemonicParsing="false" text="Save" />
+                        <MenuItem fx:id="menuItemSaveAs" mnemonicParsing="false" text="Save As" />
+                        <MenuItem fx:id="menuItemClose" mnemonicParsing="false" text="Close" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Help">
+                <Menu fx:id="menuHelp" mnemonicParsing="false" text="Help">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
+                    <MenuItem fx:id="menuItemAbout" mnemonicParsing="false" text="About" />
                   </items>
                 </Menu>
               </menus>
             </MenuBar>
-            <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" prefHeight="655.0" prefWidth="922.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" text="Copyright © 2023 | Kaveendra Randeera | All Rights Reserved." />
+            <TextArea fx:id="txtBody" prefHeight="722.0" prefWidth="935.0" />
          </children>
       </VBox>
+      <Label fx:id="lblFooter" alignment="CENTER" contentDisplay="CENTER" layoutX="262.0" layoutY="612.0" text="Copyright © 2023 | Kaveendra Randeera | All Rights Reserved." />
    </children>
 </AnchorPane>
