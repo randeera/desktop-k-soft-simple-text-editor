@@ -1,5 +1,6 @@
 package lk.ijse.dep11.app;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -138,4 +139,25 @@ public class TextFormController {
         AppInitializer.observableTitle.set("*".concat(AppInitializer.observableTitle.get()));
     }
 
+    //------------------------------------
+//--------------close -------------------
+//----------------------------------------
+
+    public void menuItemCloseOnAction(ActionEvent actionEvent) {
+        if (isEdited) {
+
+            ButtonType buttonSaveClose = new ButtonType("Save and Close");
+            ButtonType buttonClose = new ButtonType("Close without Save");
+
+            Alert confirm = new Alert(Alert.AlertType.CONFIRMATION, String.format("Save changers to the Document %s before Closing", AppInitializer.observableTitle)
+                    ,ButtonType.CANCEL,buttonSaveClose,buttonClose);
+            Optional<ButtonType> button =confirm.showAndWait();
+            if(button.isEmpty() || button.get() == ButtonType.CANCEL) return;
+            if (button.get() == buttonSaveClose) {
+                menuItemSaveOnAction(actionEvent);
+                if(isEdited) return;
+            }
+        }
+        Platform.exit();
+    }
 }
