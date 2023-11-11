@@ -9,6 +9,7 @@ import javafx.scene.web.HTMLEditor;
 import javafx.stage.FileChooser;
 
 import java.io.*;
+import java.util.Optional;
 
 
 public class TextFormController {
@@ -30,8 +31,26 @@ public class TextFormController {
     public TextArea txtBody;
     private static boolean isEdited = false;
 
-    public void menuItemNewOnAction(ActionEvent actionEvent) {
+ //------------------------------------
+//--------------New ------------------
+//-------------------------------------
 
+    public void menuItemNewOnAction(ActionEvent actionEvent) {
+        if(isEdited) {
+            ButtonType buttonNo = new ButtonType("No");
+            Alert confirm = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to save the existing file before create new Text file",buttonNo,ButtonType.YES);
+            Optional<ButtonType> button = confirm.showAndWait();
+            if (button.isEmpty() || button.get() == ButtonType.NO) {
+
+                return;
+            }
+            if (button.get() == ButtonType.YES) {
+                menuItemSaveOnAction(actionEvent);
+            }
+        }
+        AppInitializer.observableTitle.set("untitled");
+        txtBody.setText("");
+        isEdited = false;
 
     }
     //---------------------------------
