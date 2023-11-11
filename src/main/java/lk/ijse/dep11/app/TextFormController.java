@@ -3,13 +3,18 @@ package lk.ijse.dep11.app;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.HTMLEditor;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.*;
+import java.net.URL;
 import java.util.Optional;
 
 
@@ -31,6 +36,7 @@ public class TextFormController {
     public File fileAddress;
     public TextArea txtBody;
     private static boolean isEdited = false;
+    public MenuItem menuItemAboutUs;
 
 //--------------------------------------------------
 //--------------Initialize Method ------------------
@@ -170,5 +176,20 @@ public class TextFormController {
             }
         }
         Platform.exit();
+    }
+//----------------------------------------
+//--------------About Us -----------------
+//----------------------------------------
+    public void menuItemAboutUsOnAction(ActionEvent actionEvent) throws IOException {
+        URL file = getClass().getResource("/view/AboutUs.fxml");
+        FXMLLoader fxmlLoader = new FXMLLoader(file);
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.setTitle("About K-Soft Text Editor");
+        stage.sizeToScene();
+        stage.centerOnScreen();
+        stage.show();
     }
 }
