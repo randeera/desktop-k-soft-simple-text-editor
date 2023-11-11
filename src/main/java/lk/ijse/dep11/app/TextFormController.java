@@ -38,10 +38,8 @@ public class TextFormController {
 
     public void initialize(){
 
-        AppInitializer.stage.setOnCloseRequest(windowEvent -> {
-            if(isEdited) windowEvent.consume();
-            menuItemCloseOnAction(new ActionEvent());
-        });
+
+
     }
 
 
@@ -88,7 +86,7 @@ public class TextFormController {
         String content = new String(bytes);
         txtBody.setText(new String(bytes));
     }
-    //---------------------------------------
+//-------------------------------------------
 //--------------Save ------------------------
 //-------------------------------------------
     public void menuItemSaveOnAction(ActionEvent actionEvent) {
@@ -143,7 +141,7 @@ public class TextFormController {
             throw new RuntimeException(e);
         }
     }
-    //------------------------------------
+//---------------------------------------
 //--------------check is Edited ----------
 //----------------------------------------
     public void txtBodyOnKeyReleased(KeyEvent keyEvent) {
