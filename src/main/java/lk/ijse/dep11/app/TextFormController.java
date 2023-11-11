@@ -55,29 +55,24 @@ public class TextFormController {
 
     public void menuItemSaveOnAction(ActionEvent actionEvent) {
 
-        if(!isEdited) return;
-        if (AppInitializer.observableTitle.getValue().equals("untitled")) {
-            Alert inform = new Alert(Alert.AlertType.INFORMATION, "There is no text to save",ButtonType.CLOSE);
-            inform.show();
-            return;
-        }
-        if (AppInitializer.observableTitle.getValue().equals("*untitled")) {
-            menuItemSaveAsOnAction(actionEvent);
+        try {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Save a text File");
 
+            File file =fileChooser.showSaveDialog(txtBody.getScene().getWindow());
+            if(file == null)return;
+            fileAddress =file;
+            FileOutputStream fos = new FileOutputStream(file,false);
 
-        } else {
-            try {
-                FileOutputStream fos = new FileOutputStream(fileAddress, false);
-
-                String text = txtBody.getText();
-                byte[] bytes = text.getBytes();
-                fos.write(bytes);
-                fos.close();
-                isEdited = false;
-                AppInitializer.observableTitle.set(AppInitializer.observableTitle.get().substring(1));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            String text = txtBody.getText();
+            byte[] bytes = text.getBytes();
+            fos.write(bytes);
+            fos.close();
+            String fileName = String.valueOf(file);
+            AppInitializer.observableTitle.set(fileName.substring(fileName.lastIndexOf('/')+1));
+            isEdited = false;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
 
     }
