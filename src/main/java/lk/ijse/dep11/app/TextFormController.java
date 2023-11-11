@@ -37,6 +37,11 @@ public class TextFormController {
     public TextArea txtBody;
     private static boolean isEdited = false;
     public MenuItem menuItemAboutUs;
+    public TextField txtFind;
+    public Button btnDown;
+    public Button btnUp;
+    public CheckBox chkMatchCase;
+    public Label lblResult;
 
 //--------------------------------------------------
 //--------------Initialize Method ------------------
@@ -191,5 +196,14 @@ public class TextFormController {
         stage.sizeToScene();
         stage.centerOnScreen();
         stage.show();
+    }
+
+    public void btnDownOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnUpOnAction(ActionEvent actionEvent) {
+    }
+
+    public void chkMatchCaseOnAction(ActionEvent actionEvent) {
     }
 }
