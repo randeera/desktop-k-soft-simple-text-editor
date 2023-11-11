@@ -27,6 +27,7 @@ public class TextFormController {
 
     public File fileAddress;
     public TextArea txtBody;
+    private static boolean isEdited = false;
 
     public void menuItemNewOnAction(ActionEvent actionEvent) {
 
@@ -52,5 +53,37 @@ public class TextFormController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void menuItemSaveOnAction(ActionEvent actionEvent) {
+
+        if(!isEdited) return;
+        if (AppInitializer.observableTitle.getValue().equals("untitled")) {
+            Alert inform = new Alert(Alert.AlertType.INFORMATION, "There is no text to save",ButtonType.CLOSE);
+            inform.show();
+            return;
+        }
+        if (AppInitializer.observableTitle.getValue().equals("*untitled")) {
+            menuItemSaveAsOnAction(actionEvent);
+
+
+        } else {
+            try {
+                FileOutputStream fos = new FileOutputStream(fileAddress, false);
+
+                String text = txtBody.getText();
+                byte[] bytes = text.getBytes();
+                fos.write(bytes);
+                fos.close();
+                isEdited = false;
+                AppInitializer.observableTitle.set(AppInitializer.observableTitle.get().substring(1));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+    }
+
+    public void menuItemSaveAsOnAction(ActionEvent actionEvent) {
     }
 }
