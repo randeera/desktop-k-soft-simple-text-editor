@@ -30,7 +30,7 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <TextArea fx:id="txtBody" prefHeight="722.0" prefWidth="935.0" />
+            <TextArea fx:id="txtBody" onKeyReleased="#txtBodyOnKeyReleased" prefHeight="722.0" prefWidth="935.0" />
          </children>
       </VBox>
       <Label fx:id="lblFooter" alignment="CENTER" contentDisplay="CENTER" layoutX="262.0" layoutY="612.0" text="Copyright © 2023 | Kaveendra Randeera | All Rights Reserved." />

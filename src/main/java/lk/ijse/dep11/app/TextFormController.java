@@ -3,6 +3,7 @@ package lk.ijse.dep11.app;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.HTMLEditor;
 import javafx.stage.FileChooser;
@@ -112,11 +113,10 @@ public class TextFormController {
     //------------------------------------
 //--------------check is Edited ----------
 //----------------------------------------
-    private void txtEditorOnKeyReleased() {
+    public void txtBodyOnKeyReleased(KeyEvent keyEvent) {
         isEdited = true;
         if (AppInitializer.observableTitle.get().charAt(0) == '*')return;
         AppInitializer.observableTitle.set("*".concat(AppInitializer.observableTitle.get()));
-
     }
 
 }
