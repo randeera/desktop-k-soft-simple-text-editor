@@ -33,7 +33,9 @@ public class TextFormController {
 
 
     }
-
+    //---------------------------------
+//--------------Open ------------------
+//-------------------------------------
     public void menuItemOpenOnAction(ActionEvent actionEvent) throws IOException {
         FileChooser fileChooser = new FileChooser();
 
@@ -52,7 +54,9 @@ public class TextFormController {
         String content = new String(bytes);
         txtBody.setText(new String(bytes));
     }
-
+    //---------------------------------------
+//--------------Save ------------------------
+//-------------------------------------------
     public void menuItemSaveOnAction(ActionEvent actionEvent) {
 
         try {
@@ -81,7 +85,9 @@ public class TextFormController {
         }
 
     }
-
+//----------------------------------------
+//--------------Save As ------------------
+//----------------------------------------
     public void menuItemSaveAsOnAction(ActionEvent actionEvent) {
         try {
             FileChooser fileChooser = new FileChooser();
@@ -103,4 +109,14 @@ public class TextFormController {
             throw new RuntimeException(e);
         }
     }
+    //------------------------------------
+//--------------check is Edited ----------
+//----------------------------------------
+    private void txtEditorOnKeyReleased() {
+        isEdited = true;
+        if (AppInitializer.observableTitle.get().charAt(0) == '*')return;
+        AppInitializer.observableTitle.set("*".concat(AppInitializer.observableTitle.get()));
+
+    }
+
 }
