@@ -15,11 +15,12 @@ public class AppInitializer extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
+    public static Stage stage;
     @Override
     public void start(Stage primaryStage) throws IOException {
         AnchorPane root = FXMLLoader.load(getClass().getResource("/view/TextForm.fxml"));
         Scene scene = new Scene(root);
+        stage = primaryStage;
         primaryStage.setScene(scene);
         primaryStage.setTitle("KSoft Simple Text Editor");
         primaryStage.show();

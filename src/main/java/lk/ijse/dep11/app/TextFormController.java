@@ -32,6 +32,19 @@ public class TextFormController {
     public TextArea txtBody;
     private static boolean isEdited = false;
 
+//--------------------------------------------------
+//--------------Initialize Method ------------------
+//--------------------------------------------------
+
+    public void initialize(){
+
+        AppInitializer.stage.setOnCloseRequest(windowEvent -> {
+            if(isEdited) windowEvent.consume();
+            menuItemCloseOnAction(new ActionEvent());
+        });
+    }
+
+
  //------------------------------------
 //--------------New ------------------
 //-------------------------------------
@@ -54,7 +67,7 @@ public class TextFormController {
         isEdited = false;
 
     }
-    //---------------------------------
+//-------------------------------------
 //--------------Open ------------------
 //-------------------------------------
     public void menuItemOpenOnAction(ActionEvent actionEvent) throws IOException {
@@ -139,7 +152,7 @@ public class TextFormController {
         AppInitializer.observableTitle.set("*".concat(AppInitializer.observableTitle.get()));
     }
 
-    //------------------------------------
+//---------------------------------------
 //--------------close -------------------
 //----------------------------------------
 
