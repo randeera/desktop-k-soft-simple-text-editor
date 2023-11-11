@@ -26,7 +26,7 @@
                   <Font size="11.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="16.0" prefWidth="450.0" text="K-Soft Text Editor is a simple and light weight text editorfor desktop" textFill="#0d0d0d" />
+            <Label alignment="CENTER" prefHeight="16.0" prefWidth="450.0" text="K-Soft Text Editor is a simple and light weight text editor for desktop" textFill="#0d0d0d" />
             <Label alignment="CENTER" text="Built on November 11 2023" textFill="#0d0d0d" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="258.0" text="Developed by:Kaveendra Randeera" textFill="#0d0d0d" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="282.0" text="Training Softaware Engineer @ IJSE" textFill="#0d0d0d" />
