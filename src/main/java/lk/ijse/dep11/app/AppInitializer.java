@@ -22,7 +22,7 @@ public class AppInitializer extends Application {
         Scene scene = new Scene(root);
         stage = primaryStage;
         primaryStage.setScene(scene);
-        primaryStage.setTitle("KSoft Simple Text Editor");
+        primaryStage.titleProperty().bind(observableTitle);
         primaryStage.show();
         primaryStage.setResizable(false);
     }

@@ -44,6 +44,7 @@ To try out the project, please follow these Git commands in your terminal:
 3. Then execute the AppInitializerWrapper class
 
 Project Demo
+[k-soft-text-editor.mp4](..%2F..%2Fassests%2Fk-soft-text-editor.mp4)
 
 ### ☛ Contact Me
 - Email-  mailto:khkrandeera@gmail.com

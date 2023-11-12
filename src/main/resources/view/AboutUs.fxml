@@ -13,7 +13,7 @@
          <children>
             <ImageView fitHeight="110.0" fitWidth="123.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/textMELogo.png" />
+                  <Image url="@../images/k-soft-Logo.png" />
                </image>
             </ImageView>
             <Label alignment="CENTER" text="K-Soft Text Editor" textFill="#0d0d0d">
