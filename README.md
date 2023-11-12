@@ -41,10 +41,10 @@ To try out the project, please follow these Git commands in your terminal:
    mvn clean install
    ```
 
-3. Then execute the AppInitializerWrapper class
+3. Then execute the AppInitializerWrapper class<br><br>
 
-Project Demo
-[k-soft-text-editor.mp4](..%2F..%2Fassests%2Fk-soft-text-editor.mp4)
+   Project Demo<br><br>
+   ![](/home/randeera/Documents/dep-11/assests/k-soft-text-editor.mp4)
 
 ### ☛ Contact Me
 - Email-  mailto:khkrandeera@gmail.com
