@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.HTMLEditor;
@@ -295,5 +296,9 @@ public class TextFormController {
 
     public void rootOnDragOver(DragEvent dragEvent) {
         dragEvent.acceptTransferModes(TransferMode.ANY);    //Drag accepted
+    }
+
+    public void txtBodyOnMouseClicked(MouseEvent mouseEvent) {
+        txtBodyOnKeyReleased();
     }
 }
