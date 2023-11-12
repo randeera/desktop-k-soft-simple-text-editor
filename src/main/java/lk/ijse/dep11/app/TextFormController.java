@@ -6,7 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.HTMLEditor;
 import javafx.stage.FileChooser;
@@ -199,7 +201,7 @@ public class TextFormController {
 //---------------------------------------
 //--------------check is Edited ----------
 //----------------------------------------
-    public void txtBodyOnKeyReleased(KeyEvent keyEvent) {
+    public void txtBodyOnKeyReleased() {
         isEdited = true;
         if (AppInitializer.observableTitle.get().charAt(0) == '*')return;
         AppInitializer.observableTitle.set("*".concat(AppInitializer.observableTitle.get()));
@@ -278,5 +280,20 @@ public class TextFormController {
     public void chkMatchCaseOnAction(ActionEvent actionEvent) {
         flag = flag == 0 ? 2 : 0;
         findResultCount();
+    }
+
+    public void rootOnDragDropped(DragEvent dragEvent) throws IOException {
+        File file =dragEvent.getDragboard().getFiles().get(0);
+        AppInitializer.observableTitle.setValue(file.getName());
+        FileInputStream fis = new FileInputStream(file);
+        byte[] bytes = fis.readAllBytes();
+
+        fis.close();
+        txtBody.setText(new String(bytes));
+        txtBodyOnKeyReleased();
+    }
+
+    public void rootOnDragOver(DragEvent dragEvent) {
+        dragEvent.acceptTransferModes(TransferMode.ANY);    //Drag accepted
     }
 }
