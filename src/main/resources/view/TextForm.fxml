@@ -8,8 +8,6 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -41,13 +39,8 @@
                   <TextField fx:id="txtFind" prefHeight="27.0" prefWidth="487.0" promptText="Find " HBox.hgrow="ALWAYS" />
                   <Button fx:id="btnDown" mnemonicParsing="false" onAction="#btnDownOnAction" prefHeight="24.0" prefWidth="101.0" text="DOWN" HBox.hgrow="ALWAYS" />
                   <Button fx:id="btnUp" mnemonicParsing="false" onAction="#btnUpOnAction" prefHeight="24.0" prefWidth="77.0" text="UP" HBox.hgrow="ALWAYS" />
-                  <CheckBox fx:id="chkMatchCase" mnemonicParsing="false" onAction="#chkMatchCaseOnAction" prefHeight="26.0" prefWidth="142.0" selected="true" text="Match Case" HBox.hgrow="ALWAYS" />
+                  <CheckBox fx:id="chkMatchCase" mnemonicParsing="false" onAction="#chkMatchCaseOnAction" prefHeight="24.0" prefWidth="118.0" selected="true" text="Match Case" HBox.hgrow="ALWAYS" />
                   <Label fx:id="lblResult" prefHeight="24.0" prefWidth="90.0" text="0 Results" HBox.hgrow="ALWAYS" />
-                  <ImageView fitHeight="27.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/textMELogo.png" />
-                     </image>
-                  </ImageView>
                </children>
             </HBox>
             <TextArea fx:id="txtBody" onKeyReleased="#txtBodyOnKeyReleased" prefHeight="722.0" prefWidth="935.0" />
