@@ -12,10 +12,14 @@ import javafx.scene.web.HTMLEditor;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import lk.ijse.dep11.app.util.SearchResult;
 
 import java.io.*;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class TextFormController {
@@ -43,16 +47,56 @@ public class TextFormController {
     public CheckBox chkMatchCase;
     public Label lblResult;
 
+
+
+    static int pos;
+    private ArrayList<SearchResult> searchResults=new ArrayList<>();
+    static int flag = 0;
+
 //--------------------------------------------------
 //--------------Initialize Method ------------------
 //--------------------------------------------------
 
     public void initialize(){
+        txtFind.textProperty().addListener((observableValue, s, current) -> {
+            findResultCount();
 
 
+        });
+        txtBody.textProperty().addListener((observableValue, s, current) -> {
+            findResultCount();
+
+        });
+
+
+//-------------------------------------
+//--------------Find Result Count -----
+//-------------------------------------
 
     }
+    private void findResultCount() {
+        String query = txtFind.getText();
+        searchResults.clear();
+        pos=0;
+        txtBody.deselect();
 
+        Pattern pattern;
+        try {
+            pattern = Pattern.compile(query,flag);
+        } catch (Exception e) {
+            return;
+        }
+        Matcher matcher = pattern.matcher(txtBody.getText());
+
+        while (matcher.find()) {
+            int start = matcher.start();
+            int end = matcher.end();
+            SearchResult searchResult = new SearchResult(start, end);
+            searchResults.add(searchResult);
+        }
+        lblResult.setText(String.format("%d Results", searchResults.size()));
+        select();
+    }
 
  //------------------------------------
 //--------------New ------------------
@@ -198,12 +242,41 @@ public class TextFormController {
         stage.show();
     }
 
+
+//----------------------------------------
+//--------------btn Down -----------------
+//----------------------------------------
     public void btnDownOnAction(ActionEvent actionEvent) {
+        pos++;
+        if (pos == searchResults.size()) {
+            pos=-1;
+            return;
+        }
+        select();
+    }
+    private void select() {
+        if(searchResults.isEmpty())return;
+        SearchResult searchResult = searchResults.get(pos);
+        txtBody.selectRange(searchResult.getStart(),searchResult.getEnd());
+        lblResult.setText(String.format("%d / %d Results", pos+1,searchResults.size()));
     }
 
+//----------------------------------------
+//--------------btn Up -------------------
+//----------------------------------------
     public void btnUpOnAction(ActionEvent actionEvent) {
+        pos--;
+        if (pos < 0) {
+            pos=searchResults.size();
+            return;
+        }
+        select();
     }
-
+//----------------------------------------
+//--------------check Match---------------
+//----------------------------------------
     public void chkMatchCaseOnAction(ActionEvent actionEvent) {
+        flag = flag == 0 ? 2 : 0;
+        findResultCount();
     }
 }
