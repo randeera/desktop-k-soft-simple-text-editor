@@ -18,6 +18,16 @@ text within the editor.
 As I look forward to expanding the capabilities of this application, 
 I am committed to further enhancing my skills and knowledge in the realm of text editors. I welcome any suggestions for future improvements as I strive to learn and grow through this project.
 
+### ☛ Images
+![Color Chooser App](src/main/resources/images/1t.png)
+![Color Chooser App](src/main/resources/images/2t.png)
+![Color Chooser App](src/main/resources/video/1.webm)
+
+## Video Preview
+
+Click [here](src/main/resources/video/1.webm) to watch a demo of the Color Chooser App.
+
+
 ### ☛ Languages Used
 1. Java 11
 
